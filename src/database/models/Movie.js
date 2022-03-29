@@ -40,30 +40,3 @@ module.exports = (sequelize, dataTypes) => {
   return Movie
 }
 
-
-'use strict';
-
-module.exports = (sequelize, DataTypes) => {
-  const product = sequelize.define('Movie',
-    {
-      id: {
-        type: dataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      nombre: {
-        type: dataTypes.STRING(200),
-      },
-      descripcion: {
-        type: dataTypes.TEXT,
-      },
-      precio: {
-        type: dataTypes.DECIMAL,
-      }
-    },
-    {
-      tableName: 'productos',
-      timestamps: false
-    });
-  return product;
-};

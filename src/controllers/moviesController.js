@@ -10,14 +10,14 @@ const moviesController = {
         //db.alias
         db.Movie.findAll()
             .then(function (movies) { //funcion para traer las pelis 
-                res.render("moviesList", { movies: movies })
+                res.render("movies/moviesList", { movies: movies })
             });
     },
     'detail': (req, res) => {
         //accedemos al modelo
         db.Movie.findByPk(req.params.id)//aca decimos que es el numero segun url
             .then(movie => {
-                res.render('moviesDetail.ejs', { movie: movie });
+                res.render('movies/moviesDetail.ejs', { movie: movie });
             });
     },
     'new': (req, res) => {
@@ -28,7 +28,7 @@ const moviesController = {
             limit: 5
         })
             .then(movies => {
-                res.render('newestMovies', { movies });
+                res.render('movies/newestMovies', { movies });
             });
     },
     'recomended': (req, res) => {
@@ -41,19 +41,10 @@ const moviesController = {
             ]
         })
             .then(movies => {
-                res.render('recommendedMovies.ejs', { movies });
+                res.render('movies/recommendedMovies.ejs', { movies });
             });
     },
-    'drama': (req, res) => {
-        db.Movie.findAll({
-            where: {
-                genre_id: 3
-            },
-        })
-            .then(peliculas => {
-                res.render('moviesDrama', { peliculas: peliculas })
-            });
-    },
+    
     
 }
 
