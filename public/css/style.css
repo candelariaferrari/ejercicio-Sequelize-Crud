@@ -29,6 +29,23 @@ figure{
   color: #4349B5;
   text-align: center;
 }
+.contentFlex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+.contentFlex a{
+  color: #cb1e40;
+  font-size: 1rem;
+}
+.contentFlex a:visited{
+  color: #303030;
+}
+.contentFlex a:hover{
+  color: #4349B5;
+}
 
 .list-group{
   width: 40vw;
