@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películas ordas por rating</title>
     <link rel='stylesheet' href='/css/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
+
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1>PEÍCULAS ORDENADAS POR POSICIÓN</h1>
-    <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
-        <li>
-            <a href="/movies/detail/<%=movies[i].id%>"><%= movies[i].title %> </a> <br>
-            <%= 'RATING: ' + movies[i].rating %> 
-        </li>
-        <% } %>
-        
-    </ul>
+    <header>
+        <%- include('../partials/navbar.ejs')%>
+    </header>
+    <div class="container">
+        <h1 class="display-6">PEÍCULAS ORDENADAS POR POSICIÓN</h1>
+        <div class="list-group">
+            <% for( let i=0; i < movies.length; i++ ) { %>
+                
+            <a href="/movies/detail/<%= movies[i].id %>" class="list-group-item list-group-item-action" aria-current="true">
+                <%= movies[i].title %>
+                <img src="/img/eye-regular.svg" alt="ojo">
+                <p style="font-size: 0.8rem;font-weight: 600;color: #cb1e40;"><%= 'Rating: ' + movies[i].rating %></p>
+            </a>
+            
+            <% } %>
+            
+        </div>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
