@@ -7,8 +7,21 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.link{
+  text-decoration: none;
+  background-color: #cb1e40;
+  padding: 0.5em;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #fff;
+  transition: all 100ms;
+
+}
+.link:hover{
+  border: 1px solid #cb1e40;
+  background-color: transparent;
+  color: #cb1e40;
+  box-shadow: 3px 3px 7px 1px #86868680;
 }
 img{
   width: 100%;
@@ -101,4 +114,26 @@ a.visited:visited{
 }
 .red{
   color: #cb1e40 !important;
+}
+
+form{
+  width: 50vw;
+  margin: auto auto 4em auto;
+  border: 1px solid #4349B5;
+  border-radius: 15px;
+  padding: 1em 2em;
+}
+.btn.submit{
+  background-color: #cb1e40;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #fff;
+  transition: all 100ms;
+
+}
+.btn.submit:hover{
+  border: 1px solid #cb1e40;
+  background-color: transparent;
+  color: #cb1e40;
+
 }

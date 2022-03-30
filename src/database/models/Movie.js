@@ -1,42 +1,47 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'Movie';
-  let cols = {
-    id: {
-      type: dataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    created_at: {
-      type: dataTypes.DATE
-    },
-    updated_at: {
-      type: dataTypes.DATE
-    },
-    title: {
-      type: dataTypes.STRING
-    },
-    rating: {
-      type: dataTypes.INTEGER
-    },
-    awards: {
-      type: dataTypes.INTEGER
-    },
-    release_date: {
-      type: dataTypes.DATE
-    },
-    length: {
-      type: dataTypes.INTEGER
-    },
-    genre_id: {
-      type: dataTypes.INTEGER
+  let alias = 'Movie'; // esto debería estar en singular
+    let cols = {
+        id: {
+            type: dataTypes.BIGINT.UNSIGNED,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
+        },
+        // created_at: dataTypes.TIMESTAMP,
+        // updated_at: dataTypes.TIMESTAMP,
+        title: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        rating: {
+            type: dataTypes.DECIMAL.UNSIGNED,
+            allowNull: false
+        },
+        awards: {
+            type: dataTypes.BIGINT.UNSIGNED,
+            allowNull: false
+        },
+        release_date: {
+            type: dataTypes.DATEONLY,
+            allowNull: false
+        },
+        length: dataTypes.BIGINT,
+        genre_id: dataTypes.BIGINT
+    };
+    let config = {
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: false
     }
-  };
-  let config = {
-    tableName: 'movies',
-    timestamps: false
-  };
   const Movie = sequelize.define(alias, cols, config)
-
+  //RELACIONES
+  Movie.associate = function (models) {
+    Movie.belongsTo(models.Genre, {
+      as: "genero",
+      foreignKey: "genre_id"
+    });
+  }
   return Movie
 }
 

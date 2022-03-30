@@ -22,12 +22,15 @@
       <a href="/movies/recommended">Péliculas Recomendadas</a>
       <a href="/genres">Géneros</a>
       <a href="/actors">Actores</a>
+      <a href="/movies/add">Agregar Película</a>
     </div>
     <div class="list-group">
       <% for( let i=0; i < movies.length; i++ ) { %>
 
         <a href="/movies/detail/<%= movies[i].id %>" class="list-group-item list-group-item-action" aria-current="true">
-          <%= movies[i].title %>
+          <% if (movies[i].genero) { %>
+            <%= movies[i].title %> - <%= movies[i].genero.name %> 
+          <% } %>
             <img src="/img/eye-regular.svg" alt="ojo">
         </a>
         <% } %>
