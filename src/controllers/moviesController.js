@@ -13,6 +13,7 @@ const moviesController = {
     db.Movie.findAll({ //aclarar que queremos que traiga las relaciones
       include: [{ association: "genero" }]
     }).then(function (movies) { //funcion para traer las pelis 
+      console.log(JSON.stringify(movies))
       res.render("movies/moviesList", { movies: movies })
     });
   },
@@ -58,7 +59,7 @@ const moviesController = {
       awards: req.body.awards,
       release_date: req.body.release_date,
       length: req.body.length,
-      //genre_id: req.body.genre_id
+      genre_id: req.body.genre_id
     })
     res.redirect('/movies');
   },
@@ -76,7 +77,7 @@ const moviesController = {
       awards: req.body.awards,
       release_date: req.body.release_date,
       length: req.body.length,
-      //genre_id: req.body.genre_id
+      genre_id: req.body.genre_id
     }, { //el where es fundamental xq sino me va a reemplazar toda la info de la base de datos
       where: {
         id: req.params.id //accedemos a la url por pararms
@@ -85,20 +86,18 @@ const moviesController = {
     res.redirect('/movies');
   },
   delete: function (req, res) {
-    /* db.Movie.findByPk(req.params.id)
+    db.Movie.findByPk(req.params.id)
       .then(Movie => {
-        res.render('/movies/moviesDelete.ejs', { Movie })
-      }) */
+        res.render('movies/moviesDelete.ejs', { Movie })
+      }) 
   },
   destroy: function (req, res) {
-   /*  db.Movie.destroy({ //que fila queremos borrar
+   db.Movie.destroy({ //que fila queremos borrar
       where: {
         id: req.params.id
       }
     })
-      .then(() => {
-        res.redirect('/movies');
-      }); */
+    res.redirect('/movies');
   }
 
 

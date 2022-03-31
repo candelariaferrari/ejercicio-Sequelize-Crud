@@ -137,3 +137,66 @@ form{
   color: #cb1e40;
 
 }
+
+.contentBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#btnEliminar{
+  width: fit-content;
+  margin: auto;
+  border: none;
+  border-radius:0px;
+  padding: 0em;
+}
+
+.btnEditar{
+  text-decoration: none;
+  color: #FFf;
+  background-color: #4349B5;
+  padding: 0.5em;
+  border-radius: 15px;
+  margin: auto 0.5em;
+  border: 1px solid #fff;
+  transition: all 3ms;
+}
+.btnEditar:hover{
+  color: #4349B5;
+  background-color: transparent;
+  border: 1px solid #4349B5;
+}
+
+.btnVolver{
+  text-decoration: none;
+  color: #303030;
+  background-color: #e6e6e6;
+  padding: 0.5em;
+  border-radius: 15px;
+  margin: auto 0.5em;
+  border: 1px solid #fff;
+  transition: all 3ms;
+}
+.btnVolver:hover{
+  color: #303030;
+  background-color: transparent;
+  border: 1px solid #e6e6e6;
+}
+
+.btnDelete{
+  text-decoration: none;
+  color: #fff;
+  background-color: #cb1e40;
+  padding:0.3em 0.5em;
+  border-radius: 15px;
+  margin: auto 0.5em;
+  border: 1px solid #fff;
+  transition: all 3ms;
+}
+.btnDelete:hover{
+  color: #cb1e40;
+  background-color: transparent;
+  border: 1px solid #cb1e40;
+}

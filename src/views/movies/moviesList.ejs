@@ -30,9 +30,12 @@
         <a href="/movies/detail/<%= movies[i].id %>" class="list-group-item list-group-item-action" aria-current="true">
           <% if (movies[i].genero) { %>
             <%= movies[i].title %> - <%= movies[i].genero.name %> 
+          <% } else { %>
+            <%= movies[i].title %> 
           <% } %>
             <img src="/img/eye-regular.svg" alt="ojo">
         </a>
+        
         <% } %>
 
     </div>
